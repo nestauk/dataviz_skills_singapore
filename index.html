@@ -1,0 +1,1586 @@
+<!DOCTYPE html>
+
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Mapping Career Causeways</title>
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+<meta name="description" content="Skills framework" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@nesta_uk" />
+<meta name="twitter:title" content="The UK needs a skills framework" />
+<meta name="twitter:description" content="Lessons from Singapore"/>
+<meta name="twitter:image" content="https://data-viz.nesta.org.uk/skills-future-singapore/img/twitter_image.png" />
+
+<style type="text/css">
+
+  @font-face {
+      font-family: AvertaRegular;
+      src: url("css/Intelligent Design - Averta-Regular.otf") format("opentype"),
+      url('css/367A1E_4_0.eot');
+  }
+
+  @font-face {
+      font-family: AvertaLight;
+      src: url("css/Intelligent Design - Averta-Light.otf") format("opentype"),
+      url('css/367A1E_2_0.eot');
+  }
+
+  @font-face {
+      font-family: AvertaBold;
+      src: url("css/Intelligent Design - Averta-Bold.otf") format("opentype"),
+      url('css/367A1E_0_0.eot');
+  }
+
+  @font-face {
+      font-family: AvertaItalic;
+      src: url("css/Intelligent Design - Averta-RegularItalic.otf") format("opentype"),
+      url('css/367A1E_5_0.eot');
+  }
+
+
+  body {
+    font-family: "AvertaRegular", sans-serif;
+    background-color: #FFFFFF; 
+    color: #231F20;
+    font-size: 18px;
+    line-height: 1.8;
+    font-weight: 500;
+    -webkit-font-smoothing: antialiased; 
+    margin: 0px;
+    padding: 0px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  
+  #chart, #legend {
+    margin: 0px;
+    padding: 0px;
+    line-height: 0.7;
+  }
+
+  #legend {
+    padding-top: 20px;
+  }
+
+  .container_title {
+    position: relative;
+    background: linear-gradient( rgba(26, 22, 65, 0.7), rgba(26, 22, 54, 0) ), url('img/kit-suman-0L_ESMm9h2w-unsplash (2).jpg');   
+    margin: 0px auto;
+    max-width: 1380px;
+    width: 100%;
+    background-position: center center;
+    background-repeat: no-repeat; 
+    background-size: cover;  
+    color: #FFFFFF;
+    font-family: "AvertaLight", sans-serif;
+  }
+
+  .container_title_text {
+    padding: 60px 28px 14px 28px;
+    max-width: 800px;
+    font-size: 46.2222px;
+    line-height: 54.4667px;
+  }
+
+  .container_subtitle_text {
+    padding: 0px 28px 21px 28px;
+    max-width: 800px;
+    font-size: 23.111px;
+    line-height: 32.3555px;
+  }      
+
+  .container_date {
+    padding: 0px 28px 0px 28px;
+    max-width: 800px;
+    font-size: 18px;
+    line-height: 32.4px;
+  }  
+
+  .container_author {
+    font-family: "AvertaRegular", sans-serif;
+    padding: 30px 28px 50px 28px;
+    max-width: 800px;
+    font-size: 14.2222px;
+    line-height: 19.9111px;
+  } 
+
+  .container_author a {
+    color: #FFFFFF;
+    text-decoration: none;
+  }
+
+  .container_author a:hover {
+    color: #FF0041;
+  }
+
+
+  .container_text {
+    margin: 0px auto;
+    max-width: 1380px;
+  } 
+
+  .container_text a {
+    color: #e61f47;
+  }
+
+  .container_text a:hover {
+    color: #231f20;
+  }
+
+  .introduction {
+    font-family: "AvertaRegular", sans-serif;
+    color: rgb(106,88,71);
+    font-size: 18.667px;
+    font-weight: 500;
+    line-height: 33.6001px;
+    margin: 60px auto;
+  }
+
+  .text_content {
+    position: relative;
+    margin: 0px auto;
+    padding: 20px 28px 20px 28px;  
+    font-size: 18px;     
+    line-height: 32.4px; 
+  }
+
+  .text_content p {
+    margin-bottom: 28px
+  }
+
+  .text_content a:link {
+    text-decoration: none;
+  }
+  
+  .text_content a {
+    cursor: pointer;
+    color: #FF0041;
+    transition: 0.3s;
+  }
+
+  .text_content a:hover {
+    color: #231F20;
+  }
+
+  h2 {
+    font-family: "AvertaBold", sans-serif;
+    margin-bottom: 28px;
+    font-size: 23.111px;
+    font-weight: 700;
+    line-height: 32.3555px;
+  }
+
+  h3 {
+    font-family: "AvertaBold", sans-serif;
+    margin-bottom: 28px;
+    font-size: 18.6667px;
+    font-weight: 700;
+    line-height: 26.1334px;
+  }
+
+  .notes {
+    color: #706467;
+    line-height: 1.5;
+    font-size: 14px;
+    padding-top: 20px;
+    padding-bottom: 30px;
+  }
+
+  img {
+    width: 95%;
+    max-width: 1000px;
+    margin: 0px auto; 
+    display: block;
+   }
+
+  /* Larger than 800px */
+  @media only screen and (min-width: 800px) {
+    .container_title_text {
+      font-size: 72.889px;
+      line-height: 87.4668px;
+    }
+    .container_subtitle_text {
+      font-size: 33.7778px;
+      line-height: 47.2889px;
+    }
+    .introduction {
+      font-size: 23.1111px;
+      line-height: 41.5999px;
+    }
+  }  
+
+  /* Larger than 970px */
+  @media only screen and (min-width: 970px) {
+    .container_text {
+      flex-basis: 63.5%;
+      min-width: 63.5%;
+      max-width: 63.5%;
+    }
+  }  
+
+  /* Larger than 1100px */
+  @media only screen and (min-width: 1100px) {
+    .container_title_text {
+      padding: 60px 35px 14px 35px;
+    }
+    .container_subtitle_text {
+      padding: 0px 35px 21px 35px;
+    }
+    .container_date {
+      padding: 0px 35px 0px 35px;
+    }
+    .container_author {
+      padding: 30px 35px 70px 35px;
+    }
+  }  
+
+
+  #summary_answer_container {
+    margin: 0px auto;
+    background-color: #FFFFFF;
+    max-width: 1380px;
+  }
+
+  #summary_answer {
+    color: #231F20;
+    font-size: 18px;     
+    line-height: 32.4px; 
+    position: relative;
+    margin: 0px auto;
+    padding: 20px 28px 20px 28px;
+  }
+
+  .search_container {
+    height: 90px;
+    margin: 0px auto 0px auto;
+    text-align:center;
+  }
+
+  /* Larger than 970px */
+  @media only screen and (min-width: 970px) {
+    .search_container {
+      flex-basis: 63.5%;
+      min-width: 63.5%;
+      max-width: 63.5%;
+    }
+    #summary_answer_container {
+      flex-basis: 63.5%;
+      min-width: 63.5%;
+      max-width: 63.5%;
+    }
+  }  
+
+  .search_border {
+    background-color: #FFFFFF;
+    margin: 0px auto;
+    height: 100%;
+    border-radius: 4px;    
+    padding: 0px 28px 10px 28px;
+  }
+
+  #input_field {
+    width: 100%;
+    background-color: #FFFFFF;
+    float: left;
+    color: #3C1252;
+    font-family: "AvertaLight", sans-serif;
+    font-size: 18px;
+    box-sizing: border-box;
+    background-position: 14px 12px;
+    background-repeat: no-repeat;
+    padding: 14px 20px 12px 20px;
+    border: none;
+    border: 2px solid #3C1252;
+    border-radius: 4px;    
+  }
+
+  #input_field:focus {outline: 0px solid #ddd; }
+
+  .dropdown {
+    position: relative;
+    display: inline-block;
+    float: left;
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    border-radius: 4px;  
+   }
+
+  .dropdown_content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    background-color: #FFFFFF;
+    min-width: 230px;
+    width: 96%;
+    border: 1px solid #ddd;
+    z-index: 1;
+  }
+
+  .dropdown_content a {
+    padding: 12px 16px;
+    color: #857260;
+    text-align: left;
+    font-family: "AvertaRegular", sans-serif;
+    font-size: 18px;
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+  }
+
+  .dropdown_content a:hover {background-color: #857260; color: #FFFFFF;}
+
+  .show {display:block;}
+
+  ::placeholder { 
+    color: #3C1252;
+    font-weight: bold;
+    opacity: 1; 
+  }
+
+  :-ms-input-placeholder { 
+    color: #3C1252;
+    font-weight: bold;
+  }
+
+  ::-ms-input-placeholder { 
+    color: #3C1252;
+    font-weight: bold;
+  }
+
+
+  .skills_bground, .skills, .skills_dots, .skills, .sector_text_top, .sector_text_bottom, .senior_bground, .senior_text, .branches_group, .branches, .dots, .name_alternatives_text, .sector_alternatives_text, .name_alternatives_text_invisible, .level_alternatives_text, .salary_alternatives_text, .vertical_line, .instructions, .annotation_group_cluster_comments {
+    pointer-events: none;
+  }
+
+  .annotations {
+    font-family: "AvertaItalic", sans-serif;
+  }
+
+  .annotation-note-bg {
+    fill-opacity: 0;
+    stroke-width: 0px;
+    stroke: #1D9296;
+    fill: #1D9296;
+   }
+  
+  .annotation-note-label {
+    text-anchor: middle;
+    stroke-width: 0px;
+    background-color: #1D9296;
+  }
+
+  .annotation.label.one .annotation-note-label, .annotation.label.six .annotation-note-label  {
+    text-anchor: end;
+  }
+
+  .annotation.label.two .annotation-note-label, .annotation.label.three .annotation-note-label, .annotation.label.four .annotation-note-label, .annotation.label.five .annotation-note-label, .annotation.label.seven .annotation-note-label {
+    text-anchor: start;
+  }
+
+  
+  .app-footer {
+    margin: 80px auto 0px auto;
+    border-top: 3px solid rgba(160, 143, 125, 0.2);
+    background-color: #fff;
+    text-align: left;
+  }
+
+  .app-footer__container {
+    padding: 26.25px 17.5px 26.25px 17.5px;
+    margin: 0 auto;
+  }
+
+  .app-footer__icons {
+    padding: 0px 0px 17.5px 0px;
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    overflow-x: hidden
+  }
+
+  .page__footer .share-item__icon {
+      fill: #fff
+  }
+
+  .app-footer__icons .site-by-torchbox {
+      position: absolute;
+      right: -44px;
+      top: 0
+  }
+
+  .footer-link-item {
+      font-size: 15px;
+      font-size: .83333rem;
+      margin-right: 14px;
+      color: #6a5847;
+      text-align: left;
+  }
+
+  .footer-link-item__link {
+      color: #231f20;
+      text-decoration: none;
+      padding-right: 15px;
+  }
+
+  .footer-link-item__link:hover {
+      color: #e61f47
+  }
+
+  .footer-links {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center
+  }
+
+  .footer-links__container {
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    padding: 0px 0px 0px 17.5px;    
+  }
+
+
+
+
+</style>
+
+<body>
+
+  <div class="container_title" >
+    <div class="container_title_text" >
+      The UK needs a skills framework 
+    </div>
+    <div class="container_subtitle_text" >
+      Lessons from Singapore
+    </div>
+    <div class="container_date">Monday, 1 March 2021</div>        
+    <div class="container_author">
+      <a href='https://www.nesta.org.uk/team/karlis-kanders/' target="_blank"; >Karlis Kanders</a> and <a href='http://www.nesta.org.uk/users/cath-sleeman' target="_blank";>Cath Sleeman</a>
+    </div>        
+  </div>
+
+
+  <div class="container_text">  
+    <div class="text_content">
+      
+      <div class="introduction">Shortly before COVID-19 shook the world, Nesta began a collaboration with <a href='https://www.ssg.gov.sg' target="_blank";>SkillsFuture Singapore (SSG)</a> to extract novel insights from their <a href='https://www.skillsfuture.gov.sg/skills-framework' target="_blank";>Skills Frameworks</a>. These frameworks detail the competencies required in almost 1,500 job roles, covering 30 different sectors in Singapore. Below we showcase our findings and put forward the case for developing a skills framework in the UK.</div> 
+ 
+      <h2>Why do we need a skills framework?</h2>       
+      <p>The ongoing coronavirus pandemic has triggered an economic recession, <a href='https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/conditionsanddiseases/articles/coronaviruscovid19roundup/2020-03-26' target="_blank";>increased unemployment and caused a record number of redundancies</a>. With the hospitality, retail, arts and entertainment sectors being hit especially hard, the challenge for displaced workers to find new job opportunities in a time of crisis is further compounded by the <a href='https://www.nytimes.com/2020/04/10/business/coronavirus-workplace-automation.html' target="_blank";>acceleration of automation</a> in many industries.</p>
+
+      <p>Now more than ever, we need the tools and guidance to respond to a rapidly shifting labour market. Jobseekers need to identify feasible employment options that utilise their knowledge and abilities, and employers need to recognise the transferable skills of applicants who may be transitioning from other sectors. Following the Government’s recent announcement of a <a href='https://www.gov.uk/government/publications/restart-scheme' target="_blank";>Restart scheme</a> (£2.9 billion to support over one million unemployed people), policymakers will need to identify the most promising opportunities for reskilling and upskilling of the workforce. In turn, this demands an in-depth understanding of the skills and competencies needed in different jobs, and the relationships between these skills. A framework of skills can help by providing a common language for frictionless communication between workers, employers, educators and learners.</p>
+
+      <h2>What is a skills framework?</h2>
+      <p>Skills frameworks describe the skills, knowledge and competencies required in different jobs. Several such frameworks already exist, including <a href='https://www.onetonline.org/' target="_blank";>O*Net</a> which was developed by the U.S. Department of Labour and <a href='https://ec.europa.eu/esco/portal' target="_blank";>ESCO</a> which was created by the European Commission.</p>
+
+      <p>SSG, in their mission to provide the citizens of Singapore with the opportunities to develop their fullest potential throughout life, has collaborated with industry experts to design over 30 frameworks for strategically important sectors, detailing their job roles, skills and tasks. These experts have meticulously recorded the knowledge and abilities underlying the skills and competencies required for each role, as well as the key tasks involved in each job’s critical work functions. In total, Singapore's Skills Frameworks document approximately 51,000 abilities and 55,000 knowledge types, underpinning more than 8,000 unique technical skills, and 21,000 key tasks.</p>       
+
+      <h2>What can you do with a skills framework?</h2>
+      <p>It is not enough to build a skills framework - we also need to build tools around the framework to bring value to individuals and organisations. Through our collaboration with SSG, we developed several use cases demonstrating how data science and machine learning approaches can be used to combine SSG’s sectoral frameworks and in turn uncover pathways between job roles across different sectors, characterise the skills gaps in job transitions, and reveal relationships between skills and competencies.</p>
+
+      <h3>1. Supporting career transitions</h3>
+      <p>The most important use case for a framework is supporting workers as they move between jobs. We can do this by leveraging natural language processing - a machine learning method - to examine the similarities and differences between the knowledge and abilities required by each job, and the tasks performed by the workers. This allows us to measure the similarity between any two jobs, in order to find alternative career pathways with minimal skill gaps.</p>
+
+      <p>The tool below illustrates that capability. For a given job in a particular sector, the tool shows ten other roles that require similar skills (five of these roles are within the selected sector and five are outside of that sector). This tool allows users to uncover novel and unexpected cross-sectoral job transitions. Not only is this helpful to workers, particularly in times like these, but also to employers - it might help them to broaden the applicants that they consider. Moreover, for career advisors such an approach may help to provide advice and support to workers.</p>
+
+      <p>The similarity of skills is not the only consideration when moving jobs, but it is an important aspect that, without a skills framework, is difficult to measure. Once a framework is in place, it can then be enriched with other types of labour market information. For each suggested job role, the tool also provides an estimate of the monthly salary for the role and its level of seniority. This could help workers to identify their ‘desirable transitions’ - those jobs that not only require similar skills to their current role, but crucially offer a higher salary (or are at a more senior level).</p> 
+
+      <p><strong>Enter your job title into the search box below to find your viable job transitions.</strong></p>
+ 
+    </div>
+  </div>
+
+
+  <div class="search_container">
+    <div class="search_border">
+      <div class="dropdown">
+          <input type="text" placeholder="Start typing to find your job    e.g. sales manager" id="input_field" onclick='startSearch(event)' onkeyup="filterFunction(this)">
+          <div id="dropdown_content" class="dropdown_content"></div>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="most_common_jobs">  </div> 
+  <div id="summary_answer_container">  
+    <div id="summary_answer"> </div> 
+  </div>
+  
+  <div id="chart"></div> 
+  <div id="legend"></div> 
+
+  <div class="container_text">
+    <div class="text_content">
+      <div class="notes">Notes: A total of 1,465 job roles are searchable in the tool, covering 30 different sectors in Singapore. For each job, the tool shows five within-sector transitions (on the right-hand side) and five cross-sector transitions (on the left-hand side). The monthly salary estimates are based on publicly available data from Singapore’s Ministry of Manpower. The seniority levels range between 1 and 6 and are based on the proficiency levels required in the job’s technical skills and competencies.</div>
+
+      <h3>2. Finding gaps in career ladders</h3>
+      <p>SSG has also developed detailed maps of career pathways delineating typical vertical transitions (promotions) and lateral moves between different tracks within each sector. By assessing the similarity between any two job roles - and hence also the skill gaps - we are able to measure and compare, across different sectors, the potential challenges of climbing the career ladder and switching between career tracks.</p>
+
+      <img src="img/SSG_Blog_Ladder-01.png" alt="A diagram showing vertical and lateral movements between jobs" style='max-width: 500px;'>
+
+      <div class="notes">Notes: Example of a vertical career path (vertical arrows) in the Retail sector, along the Retail operations career track. The horizontal arrow indicates a lateral career move into the Brand management track. The lengths of the arrows indicate the size of the gap in knowledge and abilities between jobs (smaller gaps are associated with greater similarity between the job roles).</div>
+
+      <p>We found that the origin and destination jobs of an average vertical transition share slightly more than half of their knowledge and abilities (58% job similarity) whereas lateral transitions are a little less challenging, and share about two-thirds of their knowledge and abilities (64% similarity). These, however, are only averages and further insights can be obtained by looking at individual sectors.</p>
+    </div>
+  </div>
+
+  <img src="img/SSG_Blog_Pathways_v2.png" alt="A chart showing the ease of vertical and lateral transitions in different sectors">
+
+  <div class="container_text">
+    <div class="text_content">
+
+      <div class="notes">Notes: Comparisons of the vertical and lateral career transitions in different sectors; a subset of 15 sectors is shown, representing 1,882 job transitions. The shaded areas indicate distributions of job similarities associated with all vertical and lateral transitions in each sector; the job similarity of individual transitions that underpin the distributions are indicated by gray lines. The distributions are visualised by using kernel density estimates, which may extend beyond the range of 0-100%.</div>
+
+      <p>We identified the <a href='https://www.skillsfuture.gov.sg/skills-framework/tae' target="_blank";>training and adult education</a> sector as being particularly challenging for vertical progression, with job roles sharing only about one-third of the required competencies. Conversely, workers making side moves could satisfy more than half of the knowledge and ability requirements at the destination job. Therefore, while it may be feasible to explore different job tracks and make career adjustments, workers in this sector might struggle to make the jump to managerial positions, and hence there might exist a particular need for additional training and mentoring support.</p> 
+
+      <p>In contrast, in sectors like <a href='https://www.skillsfuture.gov.sg/skills-framework/accountancy' target="_blank";>accountancy</a>, <a href='https://www.skillsfuture.gov.sg/skills-framework/social-service' target="_blank";>social service</a> and <a href='https://www.skillsfuture.gov.sg/skills-framework/hc' target="_blank";>healthcare</a> the opposite is true, with lateral moves being significantly more challenging than promotions. This suggests that these sectors have more constrained career tracks associated with specialised knowledge and abilities. For example, the accountancy sector features numerous distinct career tracks such as business valuation, tax, audit, and assurance. Without feasible lateral paths, workers in such roles will have less flexibility and may find themselves either stuck, or even vulnerable, for example, in cases of organisational restructuring.</p>
+
+      <p>We then used the same approach to measure the difficulty of cross-sectoral transitions. Workers in jobs that share little knowledge and abilities with roles in other sectors may struggle to adapt to labour market shocks and sector-wide downturns, such as those caused by the ongoing coronavirus pandemic.</p>
+    </div>
+  </div>
+
+  <img src="img/SSG_Blog_Crosssectoral_pathways_v2.png" alt="A chart showing how difficult it is to change sectors based on your current job">
+
+  <div class="container_text">
+    <div class="text_content">
+
+      <div class="notes">Notes: Circles indicate each job’s mean similarity, in terms of knowledge and abilities, to its three most similar roles from other sectors; a subset of 15 sectors is shown, representing 903 job roles.</div>
+
+      <p>We found job roles in the <a href='https://www.skillsfuture.gov.sg/skills-framework/media' target="_blank";>media sector</a> (such as camera operators and sound engineers) to be among the most specialised, and hence the most isolated from other sectors. The few exceptions in this sector were the more managerial roles, such as marketing directors and product managers, who tend to have more transferable skills which can be applied across different sectors. This observation echoes <a href='https://www.nesta.org.uk/project/mapping-career-causeways/' target="_blank";>our findings for European occupations</a> and emphasises the importance of <a href='https://www.pec.ac.uk/policy-briefings/three-ways-in-which-evidence-should-guide-spending-review-promises-on-the-creative-industries' target="_blank";>supporting the creative sectors in particular, during the COVID-19 pandemic</a>.</p> 
+
+      <p>Conversely job roles in food manufacturing, retail and engineering services were among the most well-connected to other sectors. For example, assistant engineers in the food manufacturing sector and marketing managers in retail were among the jobs with the best cross-sectoral transition prospects. The latter may transition to numerous similar roles related to marketing in tourism, hotel and accommodation, financial services and even food manufacturing sectors. Of course, the real-world feasibility and desirability of these transitions will be affected by a host of additional factors such as the state of the local labour market, expected compensation levels and accessibility of retraining opportunities.</p>
+
+      <p>These insights could be used by policymakers for gauging the vulnerability of jobs to sector-wide shocks, and for targeting broader upskilling efforts to build worker resilience. Strikingly, even within a single sector we found a large variation in the transition prospects for different roles. This underscores the real value of a skills framework - to enable highly tailored guidance and support for each worker and transition pathway.</p>
+
+      <h3>3. Measuring skill transferability</h3>
+      <p>Transferable skills are skills that can be applied across various jobs and industries, and as such, they can be <a href='https://jobhelp.campaign.gov.uk/5-transferable-skills-that-employers-are-looking-for/' target="_blank";>particularly important</a> when a jobseeker doesn’t have specific industry experience. Lists of transferable skills usually include several soft skills, such as creativity, communication, leadership and time management, among others.</p> 
+
+      <p>A skills framework provides a more rigorous and nuanced way of measuring skill transferability that is not limited to soft skills. We can go beyond labelling skills as ‘transferable’ or ‘not transferable’, and instead embrace the fact that transferability is a continuum rather than a discrete category.</p>
+
+      <p>By using an unsupervised machine learning approach called clustering, and techniques from network science, we organised over 8,000 skills and competencies into categories of closely related skills and measured two aspects of their transferability.</p>
+
+    </div>
+  </div>
+
+  <img src="img/SSG_Blog_Transferable_skills_v2.png" alt="A chart showing two measures of skills transferability for a range of differen jobs">
+
+  <div class="container_text">
+    <div class="text_content">
+
+      <div class="notes">Notes: Each circle corresponds to a group of related skills and competencies, with the size indicating the number of skills in the group; colour indicates the broader skills type. The hierarchy of skill categories was identified by using graph community detection (similar analysis can also be applied to more granular skills categories). The interconnectedness of skills groups was assessed by using the eigenvector centrality measure from network analysis; it is normalised with respect to the group with the highest centrality score (i.e. core business management skills).</div>
+
+      <p>Firstly, we ascertained the number of sectors in which a particular group of skills is used. Possessing skills that are widely-applied will help workers to transition between different sectors. Among such skills, we found examples that are perhaps less commonly listed as transferable, including vendor management, risk management and innovation management.</p>
+
+      <p>Secondly, it is possible to assess skills’ interconnectedness with other skills, based on the similarity of their underlying knowledge and abilities (owing to the detailed nature of the SkillsFuture skills frameworks). This allowed us to distinguish between core competencies, such as business management and stakeholder management, and other skills that, while still being widely applied, use more specialised knowledge and abilities such as negotiation, emergency management and engineering.</p>
+
+      <p>Identifying highly interconnected skills may help workers to identify their core competencies and may help learners to choose between different types of retraining and upskilling. For example, stakeholder management skills are connected to other communication competencies such as talent management and learning and development, as well as skills related to business operations, such as change management and core business management.</p> 
+
+
+      <h2>What else can you do with a skills framework?</h2>
+      <p>The section above illustrates just a handful of applications for a skills framework. By enriching the framework with real-time data on job vacancies, it would be possible to track changes in regional skills demand, evaluate the market value of different skills and competencies, and identify the emergence of new skills.</p>
+
+      <p>By incorporating the latest insights on advances in task automation, we can <a href='https://www.nesta.org.uk/blog/mapping-career-causeways/' target="_blank";>support workers at risk of being displaced by automation, to make transitions towards more secure employment</a>. Similarly, to tackle the economic downturn, workers displaced by COVID-19 could be supported by tailored reskilling and career guidance.</p>
+
+      <p>Importantly, if the same skills framework were to be used by training providers and universities, it would enable a greatly-improved <a href='https://www.nesta.org.uk/data-visualisation-and-interactive/measuring-regional-skills-mismatches/' target="_blank";>mapping of regional skills supply and identification of skills mismatches</a>.</p>
+
+
+      <h2>We are building the UK’s first data-informed skills framework</h2>
+      
+      <p>Detailed occupational and skills frameworks can ultimately provide a more holistic view of pathways between different jobs. Having a “map” of the landscape of jobs and skills will be essential for efficiently responding to labour market disruptions, especially at a time when the UK faces an economic downturn and needs to <a href='https://www.centreforcities.org/levelling-up/' target="_blank";>“level up”</a> and redeploy its workforce.</p> 
+
+      <p>The challenge is that skills frameworks should be as inclusive and timely as possible, but developing and updating expert-designed frameworks is an extremely slow and labour-intensive process. To explore an automated approach, Nesta released the <a href='https://www.nesta.org.uk/data-visualisation-and-interactive/making-sense-skills/' target="_blank";>first open, data-driven UK skills taxonomy</a> in 2018 by using millions of online job adverts. However, we recognise that not all jobs are advertised online and not all necessary skills are mentioned within job adverts. To avoid these pitfalls, in the next version of the skills taxonomy, we are combining the timeliness and localisation of job adverts with the breadth of an already existing <a href='https://ec.europa.eu/esco/portal' target="_blank";>expert framework</a> (ESCO), to ultimately arrive at a more inclusive and fully open-source skills framework.</p>
+
+      <p>Our <a href='https://www.nesta.org.uk/report/precarious-to-prepared/' target="_blank";>manifesto on the future of work</a> called on the Government to adopt a live skills taxonomy, which would identify the skills needed for different jobs. As we now repeat this call, the use cases shown here, as well as our <a href='https://www.nesta.org.uk/project/mapping-career-causeways/' target="_blank";>project on mapping career causeways</a>, demonstrate the potential value in building such a taxonomy and helping workers to navigate an increasingly uncertain labour market.</p>    
+
+      <p><i>For more details about the particular skills frameworks, please contact SkillsFuture Singapore.</i></p> 
+
+      <p><i>The methodologies for comparing occupational skills sets, finding data-driven hierarchies of related skills or jobs, and identifying core competencies have been developed further and described in the recently published report on <a href='https://www.nesta.org.uk/report/mapping-career-causeways-supporting-workers-risk/' target="_blank";>Mapping Career Causeways: Supporting Workers at Risk</a>.</i></p>  
+     
+    </div>
+  </div>  
+
+
+  <div class="app-footer">
+    <div class="app-footer__container">
+      <div class="app-footer__icons">
+
+        <div class="footer-links">
+          <div class="footer-links__container">
+            <div class="footer-link-item">
+              <a class="footer-link-item__link" href="https://www.nesta.org.uk/press/"
+                  target="_parent">Press</a> <slot></slot>
+              <a class="footer-link-item__link" href="https://www.nesta.org.uk/jobs/"
+                  target="_parent">Jobs</a> <slot></slot>
+              <a class="footer-link-item__link" href="https://www.nesta.org.uk/privacy/"
+                  target="_parent">Privacy</a> <slot></slot>
+              <a class="footer-link-item__link" href="https://www.nesta.org.uk/cookies/"
+                  target="_parent">Cookies</a> <slot></slot>
+              <a class="footer-link-item__link" href="https://www.nesta.org.uk/terms-use/"
+                  target="_parent">Terms of use</a> <slot></slot>
+              <a class="footer-link-item__link" href="https://www.nesta.org.uk/contact-us/"
+                  target="_parent">Contact us</a> <slot></slot>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      
+      <div class="footer-link-item">
+          © 2021 Nesta Nesta is a registered charity in England and Wales 1144091 and Scotland SC042833. Our main address is 58 Victoria Embankment, London, EC4Y 0DS. You can reach us by phone on 020 7438 2500 or drop us a line at information@nesta.org.uk.
+      </div>
+
+      <div class="footer-link-item">
+          All our work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License, unless it says otherwise. We hope you find it useful.
+      </div>
+
+    </div>
+  </div>
+
+
+</body>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js?features=fetch"></script>
+<script src="js/d3.min.js"></script> 
+<script src="js/d3-annotation.min.js"></script> 
+
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
+<script
+  src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+  integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+  crossorigin="anonymous"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1360665-16"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-1360665-16');
+    </script>
+
+
+<script>
+
+window.onclick = function() {
+  document.getElementById("dropdown_content").classList.remove("show");
+}; 
+
+function filterFunction(input){
+  document.getElementById("dropdown_content").classList.add("show");
+  var div = document.getElementById("dropdown_content");
+  a = div.getElementsByTagName("a");
+  for (i = 0; i < a.length; i++) {
+    txtValue = a[i].textContent || a[i].innerText;
+    if (txtValue.indexOf(input.value) > -1) {
+      a[i].style.display = "";
+    } else {
+      a[i].style.display = "none";
+    }
+  }
+}
+
+function startInput(event) {
+   event.stopPropagation();
+}
+
+function startSearch(event) {
+   event.stopPropagation();
+   document.getElementById("dropdown_content").classList.add('show');
+    
+   // Only display first 20
+    var div = document.getElementById("dropdown_content");
+    a = div.getElementsByTagName("a");
+    for (i = 0; i < a.length; i++) {
+      if (i < 20) {
+        a[i].style.display = "";
+      } else {
+        a[i].style.display = "none";
+      }
+    }
+}
+ 
+var chartSVG = d3.select("#chart").append("svg")
+var svg = chartSVG.append("g")
+
+var legendSVG = d3.select("#legend").append("svg")
+var svg_legend = legendSVG.append("g")
+
+const xScale = d3.scaleLinear()
+const xScale_skills = d3.scaleLinear()
+const yScale = d3.scaleLinear()
+const yScale_seniority = d3.scaleLinear()
+const yScale_legend = d3.scaleLinear()
+
+const xMin = 0; 
+const xMax = 100;
+const yMin = 0;
+const yMax = 100;
+var min_index_seniority = 0;
+var max_index_seniority = 0;
+const min_no_skills = 0
+var length_no_skills = 0
+
+var dots;
+var branches;
+var job_titles;
+const starting_role_sector = 'sales manager media'
+var gradientRadial;
+var data;
+
+const color_name_job = '#0E3A4D'
+const color_branches = '#3C1252' 
+const color_sector = '#FFFFFF'   
+const color_chosen_job = d3.rgb(165,148,130) 
+const color_alternative_jobs = '#3C1252'  
+const color_annotation_text =  '#857260'  
+const color_legend = d3.rgb(165,148,130)
+const color_bground_skills = d3.rgb(232,227,223)
+
+const color_skills = d3.scaleLinear()
+.domain([0,1])
+.range(['#00c8e2','#ffb81c'])
+
+const length_gap_between_skills = 1
+var starting_x_pos = 0;
+const size_circles = 0.0002
+const width_branch = 0.002
+
+
+// Load data
+d3.json("data/data.json")
+  .then(setup)
+
+function setup(data){
+
+  window.data = data;
+
+  xScale.domain([xMin,xMax])
+  yScale.domain([yMin,yMax])
+  yScale_legend.domain([yMin,yMax])
+
+  // Radial gradient
+  gradientRadial = svg.append("defs")
+  .selectAll("radialGradient")
+  .data([color_skills(1), color_skills(0.75), color_skills(0.5), color_skills(0.25), color_skills(0)])
+  .enter()    
+  .append("radialGradient")
+  .attr("id", function(d,i) { return "gradient-dots"+i })
+  .attr("cx", "15%")
+  .attr("cy", "50%")
+  .attr("r", "85%");
+
+  gradientRadial.append("stop")
+  .attr("offset", "0%")
+  .attr("stop-color", function(d) { return d3.rgb(d).brighter(0.5); });
+  gradientRadial.append("stop")
+  .attr("offset", "50%")
+  .attr("stop-color", function(d) { return d; });
+  gradientRadial.append("stop")
+  .attr("offset", "100%")
+  .attr("stop-color", function(d) { return d3.rgb(d).darker(0.5); });
+
+
+  svg.selectAll('.bground')
+  .data([0]).enter().append('rect')
+  .attr('class', 'bground')
+  .style('fill', color_sector )
+  .style('opacity', 1)
+  
+  svg.selectAll('.sector_text_bottom')
+  .data([0,0]).enter().append('text')
+  .attr('class', 'sector_text_bottom')
+  .style('fill', function(d,i) { return color_branches })
+  .style('text-anchor', function(d,i) { return (i==0) ? 'end' : 'start'})
+  .text(function(d,i) { return (i==0) ? "Roles in different sectors to your current job".toUpperCase() : "Roles in the same sector as your current job".toUpperCase()})
+  .style('font-family', function(d,i) { return '"AvertaBold", sans-serif' })
+
+  svg.selectAll('.senior_bground')
+  .data(['More senior jobs','More junior jobs'])
+  .enter().append('rect')
+  .attr('class', 'senior_bground')
+  .style('fill', color_branches)
+  .attr('rx', '6px').attr('ry', '6px')
+  .style('opacity', 0)
+
+  svg.selectAll('.senior_text')
+  .data(['Senior jobs','Junior jobs'])
+  .enter().append('text')
+  .attr('class', 'senior_text')
+  .style('fill', color_sector)
+  .style('text-anchor', 'middle')
+  .text(function(d,i) { return d })
+  .style('font-family', function(e,j) { return (j<=1) ? '"AvertaBold", sans-serif' : '"AvertaRegular", sans-serif' })
+  .style('opacity', 0)
+
+  svg_legend.selectAll('.legend_bground')
+  .data([0]).enter().append('rect')
+  .attr('class', 'legend_bground')
+  .attr('rx', '4px').attr('ry', '4px')
+  .style('fill', color_legend)
+  .style('opacity', 0.2)
+
+  svg_legend.selectAll('.legend_back_dots')
+  .data([0]).enter().append('rect')
+  .attr('class', 'legend_back_dots')
+  .attr('rx', '4px').attr('ry', '4px')
+  .style('fill', color_branches)
+  .style('opacity', 0.1)
+
+  svg_legend.selectAll('.legend_skills_dots')
+  .data([30,40,50,60,70]).enter().append('circle')
+  .attr('class', 'legend_skills_dots')
+  .style('fill', function(d,i) { return (i==0) ? "url(#gradient-dots" + 4 + ")" : (i==1) ? "url(#gradient-dots" + 3 + ")" : (i==2) ? "url(#gradient-dots" + 2 + ")" : (i==3) ? "url(#gradient-dots" + 1 + ")" : "url(#gradient-dots" + 0 + ")"})     
+
+  svg_legend.selectAll('.legend_skills_text')
+  .data([26,26,74,74]).enter().append('text')
+  .attr('class', 'legend_skills_text')
+  .style('fill', color_branches)
+  .style('text-anchor', function(d,i) { return (i==0 || i==1) ? "end" : "start" })
+  .text(function(d,i) { return (i==0) ? "You probably will have this" : (i==1) ? "skill given your current job" : (i==2) ? "You probaby won't have this" : "skill given your current job"})
+
+  svg_legend.selectAll('.legend_proficiency_dots')
+  .data([44, 26, 12]).enter().append('circle')
+  .attr('class', 'legend_proficiency_dots')
+  .style('fill', function(d,i) { return "url(#gradient-dots" + 3 + ")" })
+
+  svg_legend.selectAll('.legend_proficiency_text')
+  .data([42,10]).enter().append('text')
+  .attr('class', 'legend_proficiency_text')
+  .style('fill', color_branches)
+  .style('text-anchor', "start")
+  .text(function(d,i) { return (i==0) ? "The job requires high proficiency in this skill" : "Requires low proficiency"})
+
+  svg_legend.selectAll('.legend_similarity_line')
+  .data([34,18]).enter().append('line')
+  .attr('class', 'legend_similarity_line')
+  .style('stroke', function(d,i) { return color_branches })
+  .style('stroke-linecap', "round")
+
+  svg_legend.selectAll('.legend_similarity_text')
+  .data([31.5,15]).enter().append('text')
+  .attr('class', 'legend_similarity_text')
+  .style('fill', color_branches)
+  .style('text-anchor', "start")
+  .text(function(d,i) { return (i==0) ? "This job is very similar to your current job" : "Quite similar to your current job"})
+ 
+
+  // Job title search
+  var job_sector_titles = data.map(function(d,i) { return d.job_role+' in '+d.sector })
+
+  // Add elements to list
+  var mydiv = document.getElementById("dropdown_content");
+  $.each(job_sector_titles, function (i, item) {
+     var aTag = document.createElement('a');
+      aTag.innerText = item;
+      aTag.className = "dropdown_list" 
+     mydiv.appendChild(aTag);
+  });
+
+  // Users clicks on a job title
+  $(document).ready(function() {
+    $('a.dropdown_list').click(function(event) {
+      event.preventDefault();
+
+      var job_sector_role = $(this).text()
+
+      var text_input_field = document.getElementById('input_field');
+      text_input_field.value = job_sector_role
+
+      var job_role = job_sector_role.split(' in ')[0]
+      var sector = job_sector_role.split(' in ')[1]
+      var job_entry = data.filter(function(d,i) { return d.job_role==job_role && d.sector==sector})[0]  
+      document.getElementById("dropdown_content").classList.toggle('show');
+      if (job_entry['job_role'].length>0) {
+        $('html,body').animate({ scrollTop: $("#chart").offset().top+100},'slow');    
+      }      
+      draw_transitions(job_entry);
+    });
+  });
+
+  // Draw first entry 
+  var first_entry = data.filter(function(d,i) { return d.job_role+' '+d.sector==starting_role_sector})[0]
+  draw_transitions(first_entry)
+
+}
+
+
+function resize() {
+
+  var bodyWidth = Math.min(1380,document.body.clientWidth*0.9)
+
+  var margin = {top: bodyWidth*0, right: (document.body.clientWidth-bodyWidth)*0.5, bottom: bodyWidth*0, left: (document.body.clientWidth-bodyWidth)*0.5}
+    , margin_legend = {top: bodyWidth*0, right: (document.body.clientWidth-bodyWidth)*0.5, bottom: bodyWidth*0, left: (document.body.clientWidth-bodyWidth)*0.5}
+
+    , width = bodyWidth  
+    , height = bodyWidth*(0.7) - margin.top - margin.bottom
+    , height_legend = bodyWidth*0.15 - margin_legend.top - margin_legend.bottom
+
+  chartSVG.attr("width", width + margin.left + margin.right)
+  .attr("height", height + margin.top + margin.bottom)
+  svg.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+  legendSVG.attr("width", width + margin_legend.left + margin_legend.right)
+  .attr("height", height_legend + margin_legend.top + margin_legend.bottom)
+  svg_legend.attr("transform", "translate(" + margin_legend.left + "," + margin_legend.top + ")");
+
+  xScale.range([0, width]);
+  xScale_skills.range([0, width]);
+  yScale.range([height, 0]);
+  yScale_seniority.range([height,0])
+  yScale_legend.range([height_legend,0])
+
+  svg.selectAll('.bground')
+  .attr('x', xScale(0))
+  .attr('y', function(d,i) { return yScale(yMax)})
+  .attr('width', xScale(100))
+  .attr('height', function(d,i) { return yScale(0)})
+  .on('click', function(d,i) {
+    svg.selectAll('.skills_bground, .skills, .skills_dots')
+    .style('opacity', 0)
+    svg.selectAll('.sectors').attr('data-name', 'unselected')
+  })
+
+  svg.selectAll('.sector_text_bottom')
+  .attr('x', function(d,i) { return (i==0) ? xScale(38) : xScale(62) })
+  .attr('y', function(d,i) { return yScale(6)})
+  .style('font-size', function(d,i) { return (width*0.0125)+"px" })
+
+  svg.selectAll('.senior_bground')
+  .attr('x', function(d,i) { return xScale(40)})
+  .attr('y', function(d,i) { return (i==0) ? yScale(98) : yScale(6)})
+  .attr('width', xScale(20))
+  .attr('height', function(d,i) { return yScale(yMax-5)})
+
+  svg.selectAll('.senior_text')
+  .attr('x', function(d,i) { return xScale(50)})
+  .attr('y', function(d,i) { return (i==0) ? yScale(94.5) : yScale(2.5)})
+  .style('font-size', function(d,i) { return (width*0.015)+"px" })
+
+  svg_legend.selectAll('.legend_bground')
+  .attr('x', function(d,i) { return xScale(0) })
+  .attr('y', function(d,i) { return yScale_legend(100) })
+  .attr('width', function(d,i) { return xScale(100) })
+  .attr('height', function(d,i) { return yScale_legend(0) })
+
+  svg_legend.selectAll('.legend_back_dots')
+  .attr('x', function(d,i) { return xScale(5) })
+  .attr('y', function(d,i) { return yScale_legend(92)})
+  .attr('width', function(d,i) { return xScale(90)})
+  .attr('height', function(d,i) { return yScale_legend(70)})
+
+  svg_legend.selectAll('.legend_skills_dots')
+  .attr('cx', function(d,i) { return xScale(d) })
+  .attr('cy', function(d,i) { return yScale_legend(78)})
+  .attr('r', function(d,i) { return yScale_seniority(max_index_seniority-0.20)+"px" })
+
+  svg_legend.selectAll('.legend_skills_text')
+  .attr('x', function(d,i) { return xScale(d) })
+  .attr('y', function(d,i) { return (i==0 || i==2) ? yScale_legend(79) : yScale_legend(70)})
+  .style('font-size', function(d,i) { return (width*0.0125)+"px" })
+
+  svg_legend.selectAll('.legend_proficiency_dots')
+  .attr('cx', function(d,i) { return xScale(7) })
+  .attr('cy', function(d,i) { return yScale_legend(d)})
+  .attr('r', function(d,i) { return (i==0) ? yScale_seniority(max_index_seniority-0.20) : (i==1) ? yScale_seniority(max_index_seniority-0.16) : yScale_seniority(max_index_seniority-0.12) })
+
+  svg_legend.selectAll('.legend_proficiency_text')
+  .attr('x', function(d,i) { return xScale(9.5) })
+  .attr('y', function(d,i) { return yScale_legend(d)})
+  .style('font-size', function(d,i) { return (width*0.0125)+"px" })
+
+  svg_legend.selectAll('.legend_similarity_line')
+  .attr('x1', function(d,i) { return xScale(64-10) })
+  .attr('y1', function(d,i) { return yScale_legend(d)})
+  .attr('x2', function(d,i) { return xScale(64) })
+  .attr('y2', function(d,i) { return yScale_legend(d)})
+  .style('stroke-width', function(d,i) { return (i==0) ? (width*width_branch*3)+"px" : (width*width_branch)+"px" })
+
+  svg_legend.selectAll('.legend_similarity_text')
+  .attr('x', function(d,i) { return xScale(66) })
+  .attr('y', function(d,i) { return yScale_legend(d)})
+  .style('font-size', function(d,i) { return (width*0.0125)+"px" })
+
+  svg.selectAll('.sectors')
+  .attr('x', function(d,i) { return (d.sector==d.starting_sector) ? xScale(50) : xScale(0) })
+  .attr('y', function(d,i) { return yScale_seniority(d.index_seniority_transition+0.5)})
+  .attr('width', function(d,i) { return xScale(50) })
+  .attr('height', function(d,i) { return yScale_seniority(max_index_seniority-1)})
+  .on('mouseout', function(d,i) { 
+
+      svg.selectAll('.instructions')
+      .style('opacity', 0)
+
+      d3.select(this)
+      .transition()
+      .duration(0)
+      .style('fill', function(e,j) { return (e.similarity==1) ? color_chosen_job : color_sector })
+
+  })
+  .on('mouseover', function(d,i) { 
+
+    var data_name_instructions = svg.selectAll('.instructions').attr('data-name')
+    if (data_name_instructions!='clicked') {
+      svg.selectAll('.instructions')
+      .attr('x', function(e,j) { return (d.sector==d.starting_sector) ? xScale(48.5) : xScale(51.5) })
+      .attr('y', function(e,j) { return yScale_seniority(d.index_seniority_transition) })
+      .style('font-size', function(d,i) { return (width*0.0125)+"px" })
+      .style('text-anchor', function(e,j) { return (d.sector==d.starting_sector) ? 'end' : 'start' })
+      .style('opacity', 1)
+    }
+
+    d3.select(this)
+    .transition()
+    .duration(200)
+    .style('fill', function(e,j) { return (e.similarity==1) ? color_chosen_job : color_sector })
+
+
+  })
+  .on('click', function(d,i) {
+
+    svg.selectAll('.instructions')
+    .style('opacity', 0)
+    .attr('data-name', 'clicked')
+
+    var class_name = svg.selectAll('.sectors').attr('data-name')
+
+    if (class_name=='selected'+i) { 
+      svg.selectAll('.skills_bground')
+      .style('opacity', 0)
+      svg.selectAll('.skills')
+      .style('opacity', 0)
+      svg.selectAll('.skills_dots')
+      .style('opacity', 0)
+    } else { 
+
+
+      var gap_between_skills = 0.25
+      if (d['skills'].length>50) {
+        var gap_between_skills = 0.17
+      }
+      var job_heading = d.job_role
+      if (job_heading.length>110) {
+        var job_heading = d.job_role.substr(0,107)+'...'
+      } 
+      var skills_data = d['skills'].map(function(f,k) { return {'skill': f.skill, 'skill_type': f.skill_type, 'proficiency_level': f.proficiency_level, 'matching_score': f.matching_score} }) 
+      skills_data.unshift({'skill': 'Skills required for', 'skill_type': '', 'proficiency_level': ''}, {'skill': job_heading, 'skill_type': '', 'proficiency_level': ''})
+
+      svg.selectAll('.skills_bground').data([]).exit().remove()
+      svg.selectAll('.skills_bground').data([0]).enter().append('rect')
+      .attr('class', 'skills_bground')
+      .attr('y', function(e,j) { return (skills_data.length*gap_between_skills>d.index_seniority_transition) ?  yScale_seniority(skills_data.length*gap_between_skills-1.5) : yScale_seniority(d.index_seniority_transition+0.5)})
+      .attr('height', function(e,j) { return yScale_seniority(max_index_seniority-(0.5+gap_between_skills*skills_data.length)) })
+      .style('fill', function(e,j) { return color_bground_skills})
+      .attr('rx', '4px').attr('ry', '4px')
+      .style('opacity', 0.95)
+
+      svg.selectAll('.skills').data([]).exit().remove()
+      svg.selectAll('.skills').data(skills_data).enter().append('text')
+      .attr('class', 'skills')
+      .text(function(e,j) { return e['skill'] })
+      .attr('class', 'skills')
+      .style('fill', color_branches )
+      .style('text-anchor', function(e,j) { return (d.sector==d.starting_sector) ? 'end' : 'start'})
+      .style('font-family', function(e,j) { return (j<=1) ? '"AvertaBold", sans-serif' : '"AvertaRegular", sans-serif' })
+      .attr('x', function(e,j) { return (d.sector==d.starting_sector) ? xScale(96) : xScale(4) }) 
+      .attr('y', function(e,j) { return (skills_data.length*gap_between_skills>d.index_seniority_transition) ?  yScale_seniority((skills_data.length-j)*gap_between_skills-1.9) : yScale_seniority(d.index_seniority_transition-(j*gap_between_skills)+0.1)})
+      .style('font-size', function(e,j) { return (width*0.01)+"px" })
+
+      svg.selectAll('.skills_dots').data([]).exit().remove()
+      svg.selectAll('.skills_dots').data(skills_data.filter(function(e,j) { return j>1})).enter().append('circle')
+      .attr('class', 'skills_dots')
+      .attr('cx', function(e,j) { return (d.sector==d.starting_sector) ? xScale(97.5) : xScale(2.5) }) 
+      .attr('cy', function(e,j) { return (skills_data.length*gap_between_skills>d.index_seniority_transition) ? yScale_seniority((skills_data.length-(j+2))*gap_between_skills-1.85) : yScale_seniority(d.index_seniority_transition-((j+2)*gap_between_skills)+0.15)})
+      .style('fill', function(e,j) { return (e.matching_score<0.2) ? "url(#gradient-dots" + 0 + ")" : (e.matching_score<0.4) ? "url(#gradient-dots" + 1 + ")" : (e.matching_score<0.6) ? "url(#gradient-dots" + 2 + ")" : (e.matching_score<0.8) ? "url(#gradient-dots" + 3 + ")" : "url(#gradient-dots" + 4 + ")"})     
+      .attr('r', function(e,j) { return (e.proficiency_level>4) ? yScale_seniority(max_index_seniority-0.20/1.5) : (e.proficiency_level>2) ? yScale_seniority(max_index_seniority-0.16/1.5) : yScale_seniority(max_index_seniority-0.12/1.5) })
+      .style('opacity', 1)
+
+      lengths_skills = []
+      svg.selectAll('.skills').nodes().forEach(function(el) { lengths_skills.push(el.getComputedTextLength()); })
+      
+      svg.selectAll('.skills_bground')
+      .attr('x', function(e,j) { return (d.sector==d.starting_sector) ? xScale(94)-Math.max.apply(Math, lengths_skills) : xScale(1) }) 
+      .attr('width', function(d,i) { return Math.max.apply(Math, lengths_skills)+xScale(5)})     
+
+
+    }
+
+    if (class_name=='selected'+i) {
+      svg.selectAll('.sectors').attr('data-name', 'unselected')
+    } else {
+      svg.selectAll('.sectors').attr('data-name', 'selected'+i)
+    } 
+
+  }) // End of sectors
+
+
+  svg.selectAll('.branches_group')
+  .style('stroke-width', function(d,i) { return (d.similarity>0.5) ? (width*width_branch*3)+"px" : (width*width_branch)+"px" })
+
+  svg.selectAll('.branches_group').selectAll('.branches')
+  .attr('y1', function(d,i) { return yScale_seniority(d.index_seniority_transition-0.4)})
+  .attr('y2', function(d,i) { return yScale_seniority(d.index_seniority_transition-0.4)})  
+  .attr('x1', function(d,i) { return (d.sector==d.starting_sector) ? xScale(50.4) : xScale(49.6)})
+  .attr('x2', function(d,i) { return (d.sector==d.starting_sector) ? xScale(50.4) : xScale(49.6)})
+
+  svg.selectAll('.branches_group').selectAll('.dots')
+  .attr('cx', function(d,i) { return (d.detour_x_pos>length_no_skills/2) ? xScale(2)+xScale_skills(d.detour_x_pos) : xScale_skills(d.detour_x_pos)-xScale(2)})
+  .attr('cy', function(d,i) { return (d.proficiency_level>4) ? yScale_seniority(d.detour_y_pos+0.02) : (d.proficiency_level>2) ? yScale_seniority(d.detour_y_pos-0.01) : yScale_seniority(d.detour_y_pos-0.05) })
+
+  svg.selectAll('.name_alternatives_text_invisible')
+  .attr('x', function(d,i) { return (d.sector==d.starting_sector) ? xScale(52) : xScale(48) })    
+  .attr('y', function(d,i) { return yScale_seniority(d.index_seniority_transition+0.2)})
+  .style('font-size', function(d,i) { return (d.job_role.length>58) ? (width*0.01)+"px" : (width*0.0125)+'px' })
+  .text(function(d,i) { return d.job_role })
+
+  lengths_labels = []
+  svg.selectAll('.name_alternatives_text_invisible').nodes().forEach(function(el) { lengths_labels.push(el.getComputedTextLength()); })
+
+  svg.selectAll('.name_alternatives_text')
+  .attr('x', function(d,i) { return (d.sector==d.starting_sector) ? xScale_skills(length_gap_between_skills+(length_no_skills/2))+xScale(1.5) : xScale_skills((length_no_skills/2)-length_gap_between_skills)-xScale(1.5) })  
+  .attr('y', function(d,i) { return yScale_seniority(d.index_seniority_transition+0.2)})
+  .style('text-anchor', function(d,i) { return (d.sector==d.starting_sector) ? 'start' : 'end' })
+   .style('font-size', function(d,i) { return (d.job_role.length>58) ? (width*0.01)+"px" : (width*0.0125)+'px' })
+  .text(function(d,i) { return (lengths_labels[i]>0.4*width && d.job_role.length>69) ? d.job_role.substr(0,Math.max(72))+'...' : d.job_role })  
+
+  svg.selectAll('.sector_alternatives_text')
+  .attr('x', function(d,i) { return (d.sector==d.starting_sector) ? xScale_skills(length_gap_between_skills+(length_no_skills/2))+xScale(1.5) : xScale_skills((length_no_skills/2)-length_gap_between_skills)-xScale(1.5) })  
+  .attr('y', function(d,i) { return yScale_seniority(d.index_seniority_transition)})
+  .style('text-anchor', function(d,i) { return (d.sector==d.starting_sector) ? 'start' : 'end' })
+   .style('font-size', function(d,i) { return (d.job_role.length>58) ? (width*0.01)+"px" : (width*0.0125)+'px' })
+
+  svg.selectAll('.level_alternatives_text')
+  .attr('x', function(d,i) { return (d.sector==d.starting_sector) ? xScale(4)+xScale_skills((length_no_skills/2)+(d.no_of_skills*length_gap_between_skills)) : -xScale(4)+xScale_skills((length_no_skills/2)-(d.no_of_skills*length_gap_between_skills)) })
+  .style('text-anchor', function(d,i) { return (d.sector==d.starting_sector) ? 'start' : 'end' })
+  .attr('y', function(d,i) { return (d.salary=='nan') ? yScale_seniority(d.index_seniority_transition-0.3) : yScale_seniority(d.index_seniority_transition-0.2)})
+   .style('font-size', function(d,i) { return (d.job_role.length>58) ? (width*0.009)+"px" : (width*0.0115)+'px' })
+
+  svg.selectAll('.salary_alternatives_text')
+  .attr('x', function(d,i) { return (d.sector==d.starting_sector) ? xScale(4)+xScale_skills((length_no_skills/2)+(d.no_of_skills*length_gap_between_skills)) : -xScale(4)+xScale_skills((length_no_skills/2)-(d.no_of_skills*length_gap_between_skills)) })  
+  .style('text-anchor', function(d,i) { return (d.sector==d.starting_sector) ? 'start' : 'end' })
+  .attr('y', function(d,i) { return yScale_seniority(d.index_seniority_transition-0.4)})
+   .style('font-size', function(d,i) { return (d.job_role.length>58) ? (width*0.009)+"px" : (width*0.0115)+'px' })
+
+  svg.selectAll('.vertical_line')
+  .attr('x1', function(d,i) { return xScale(50)})
+  .attr('y1', function(d,i) { return yScale_seniority(d.index_job_entry)})
+  .attr('x2', function(d,i) { return xScale(50)})
+  .attr('y2', function(d,i) { return yScale_seniority(d.index_job_entry)})
+  .style('stroke-width', function(d,i) { return (width*width_branch*4)+"px" })
+
+
+  const annotations_cluster_comments = [
+    { note: {
+      label: "Each ball in the row is a skill that you'll need to become Head of Sales in the infocomm technology sector.",
+      align: 'right',
+      wrap: width/4
+    },
+    x: xScale(27),
+    y: yScale(79),
+    dy: -yScale(yMax-5),
+    dx: xScale(0),
+    className: "one",
+    color: color_annotation_text 
+    },
+    
+    { note: {
+      label: "Blue balls are skills that you have. Yellow balls are skills that you'll need to acquire.",
+      align: 'right',
+      wrap: width/4
+    },
+    x: xScale(26.5),
+    y: yScale(71.5),
+    className: "two",
+    color: color_annotation_text },
+
+    { note: {
+      label: "All the balls are blue for your current job because we assume that you already have these skills.",
+      align: 'left',
+      wrap: width/3.5
+    },
+    x: xScale(68.5),
+    y: yScale(68),
+    dy: yScale(yMax-2.5),
+    dx: xScale(0),
+    className: "three",
+    color: color_annotation_text 
+    },
+    
+    { note: {
+      label: "Larger balls denote skills that are very important for the job. Smaller balls are skills that are less important.",
+      align: 'right',
+      wrap: width/3.5
+    },
+    x: xScale(95),
+    y: yScale(47),
+    className: "four",
+    color: color_annotation_text },
+
+    { note: {
+      label: "This is the seniority level of the job and an estimate of the monthly salary.",
+      align: 'left',
+      wrap: width/4.5
+    },
+    x: xScale(6),
+    y: yScale(50.5),
+    dy: -yScale(yMax-3.5),
+    dx: xScale(0),
+    className: "five",
+    color: color_annotation_text },
+
+    { note: {
+      label: "Jobs on the right-hand side are in the same sector (media) as your current job.",
+      align: 'right',
+      wrap: width/4
+    },
+    x: xScale(95),
+    y: yScale(29.5),
+    className: "six",
+    color: color_annotation_text },
+
+    { note: {
+      label: "Jobs on the left-hand side are in different sectors to your current job in media.",
+      align: 'left',
+      wrap: width/4
+    },
+    x: xScale(10),
+    y: yScale(16),
+    className: "seven",
+    color: color_annotation_text }        
+  ]
+
+  var makeAnnotations_cluster_comments = d3.annotation()
+  .type(d3.annotationLabel)
+  .notePadding(0)
+  .annotations(annotations_cluster_comments)
+
+  svg.selectAll('.annotation_group_cluster_comments')
+  .style('font-size', function(d,i) { return (width*0.0125)+"px" })
+  .call(makeAnnotations_cluster_comments)  
+
+
+
+  svg.selectAll('.vertical_line')
+  .attr('y1', function(d,i) { return yScale(93.5)})
+  .attr('y2', function(d,i) { return yScale(5.5)})
+
+  svg.selectAll('.senior_bground')
+  .style('opacity', 1)
+
+  svg.selectAll('.senior_text')
+  .style('opacity', 1)
+
+
+  // TRANSITIONS
+
+  svg.selectAll('.branches_group').selectAll('.branches')
+  .transition()
+  .duration(0)
+  .delay(1000)
+  .style('opacity', 1)
+  .transition()
+  .duration(2000)
+  .delay(0)
+  .ease(d3.easeLinear) 
+  .attr('x2', function(d,i) { return (d.sector==d.starting_sector) ? xScale_skills((length_no_skills/2)+(d.no_of_skills*length_gap_between_skills))+xScale(2) : xScale_skills((length_no_skills/2)-(d.no_of_skills*length_gap_between_skills))-xScale(2) })
+
+  svg.selectAll('.name_alternatives_text').style('opacity', 0)
+  svg.selectAll('.sector_alternatives_text').style('opacity', 0)
+  svg.selectAll('.level_alternatives_text').style('opacity', 0)
+  svg.selectAll('.salary_alternatives_text').style('opacity', 0)
+
+  svg.selectAll('.name_alternatives_text')      
+   .transition()
+   .delay(1000)
+   .duration(0)
+   .ease(d3.easeLinear) 
+   .style('opacity', 1)
+  svg.selectAll('.sector_alternatives_text')      
+   .transition()
+   .delay(1000)
+   .duration(0)
+   .ease(d3.easeLinear) 
+   .style('opacity', 1)
+  svg.selectAll('.level_alternatives_text')      
+   .transition()
+   .delay(3000) 
+   .duration(0)
+   .ease(d3.easeLinear) 
+   .style('opacity', 1)
+  svg.selectAll('.salary_alternatives_text')      
+   .transition()
+   .delay(3000) 
+   .duration(0)
+   .ease(d3.easeLinear) 
+   .style('opacity', 1)
+
+  svg.selectAll('.dots')
+  .attr('r', 0)
+  .transition()
+  .delay(function(d,i) { return 3000+2000*Math.random() })
+  .duration(500)
+  .ease(d3.easeBounce) 
+  .attr('r', function(d,i) { return (d.proficiency_level>4) ? yScale_seniority(max_index_seniority-0.20) : (d.proficiency_level>2) ? yScale_seniority(max_index_seniority-0.16) : yScale_seniority(max_index_seniority-0.12) })
+
+};
+
+
+  // Draw transitions
+  function draw_transitions(job_entry) {
+
+    var job_role = job_entry['job_role']
+    var starting_sector = job_entry['sector']
+    var feasible_transitions = job_entry['feasible_transitions']
+
+    // Most frequently requested skills
+    var all_skills = {}
+    var max_number_skills = 0
+    for (j=0; j<feasible_transitions.length; j++) {    
+      if (feasible_transitions[j]['skills'].length>max_number_skills) {
+        max_number_skills = feasible_transitions[j]['skills'].length
+      }
+      for (k=0; k<feasible_transitions[j]['skills'].length; k++) {
+        var one_skill = feasible_transitions[j]['skills'][k]['skill']
+        if (!(one_skill in all_skills)) {
+          all_skills[one_skill] = 0
+        }
+        all_skills[one_skill] += 1
+      }
+    }  
+    sorted_skills = Object.keys(all_skills).sort(function(a,b){return all_skills[b]-all_skills[a]})
+
+    document.getElementById('summary_answer').innerHTML = 'Below are ten jobs that require similar skills to a <strong>'+job_role+'</strong>. The five skills that are most frequently needed in these jobs are '+sorted_skills.slice(0,4).join(', ')+' and '+sorted_skills[4]+'.'
+
+    var all_seniorities_salaries = feasible_transitions.slice() 
+    all_seniorities_salaries.sort(function(a,b) { return d3.ascending(a.seniority, b.seniority) || d3.ascending(a.salary, b.salary) })
+
+    var all_job_titles_sectors = all_seniorities_salaries.map(function(e) { return e.job_role+e.sector; })
+    var index_job_entry = all_job_titles_sectors.indexOf(job_role+starting_sector)
+
+    min_index_seniority = -2
+    max_index_seniority = all_seniorities_salaries.length+1
+    yScale_seniority.domain([min_index_seniority, max_index_seniority])
+
+
+    length_no_skills = (2*(+max_number_skills+1))*length_gap_between_skills
+    starting_x_pos = length_no_skills/2
+    xScale_skills.domain([min_no_skills-(length_no_skills/7), length_no_skills+(length_no_skills/7)])
+
+
+    for (j=0; j<feasible_transitions.length; j++) {    
+
+      var other_sector = job_entry['feasible_transitions'][j]['sector']      
+
+      var skills = job_entry['feasible_transitions'][j]['skills'].slice()
+      if (other_sector==starting_sector) {
+        var skills_sorted = skills.sort(function(a,b) { return d3.descending(a.matching_score, b.matching_score) })
+      } else {
+        var skills_sorted = skills.sort(function(a,b) { return d3.descending(b.matching_score, a.matching_score) })        
+      }
+
+      var index_seniority_transition = all_job_titles_sectors.indexOf(feasible_transitions[j]['job_role']+feasible_transitions[j]['sector'])
+
+      positions_of_detours = [] 
+      for (k = 0; k < skills_sorted.length; k++) {
+        if (other_sector==starting_sector) {
+          var detour_x_pos = starting_x_pos+((k+1)*length_gap_between_skills)
+        } else {
+          var detour_x_pos = starting_x_pos-((skills_sorted.length+1)*length_gap_between_skills)+((k+1)*length_gap_between_skills)
+        }
+        var detour_y_pos = index_seniority_transition-0.25 
+          positions_of_detours.push({
+              'proficiency_level': skills_sorted[k]['proficiency_level'],
+              'matching_score': skills_sorted[k]['matching_score'],
+              'skill_entry': "yes",
+              'detour_x_pos': detour_x_pos, 
+              'detour_y_pos': detour_y_pos})     
+      }
+
+      job_entry['index_job_entry'] = index_job_entry
+      job_entry['feasible_transitions'][j]['index_seniority_transition'] = index_seniority_transition
+      job_entry['feasible_transitions'][j]['positions_of_detours'] = positions_of_detours
+      job_entry['feasible_transitions'][j]['no_of_skills'] = skills_sorted.length
+
+    }
+
+    if (!svg.selectAll('.skills_bground').empty()) { 
+      svg.selectAll('.skills_bground')
+      .style('opacity', 0)
+      svg.selectAll('.skills')
+      .style('opacity', 0)
+      svg.selectAll('.skills_dots')
+      .style('opacity', 0)
+    }    
+
+    var sectors = svg.selectAll('.sectors')
+    .data(job_entry['feasible_transitions'])
+    sectors.exit().remove()
+    sectors.enter().append('rect')
+    .attr('class', 'sectors')
+    .attr('data-name', 'unselected')
+    .merge(sectors)
+    .transition()
+    .duration(0)
+    .style('fill', function(d,i) { return (d.similarity==1) ? color_chosen_job : color_sector })
+    .style('opacity', 0.25)
+    .attr('rx', '4px')
+    .attr('ry', '4px')
+
+    var instructions = svg.selectAll('.instructions')
+    .data(['Click to view list of skills'])
+    instructions.exit().remove()
+    instructions.enter().append('text')
+    .attr('class', 'instructions')
+    .attr('data-name', 'notclicked')
+    .merge(instructions)
+    .transition()
+    .duration(0)
+    .text(function(d,i) { return d})
+    .style('fill', color_alternative_jobs)
+    .style('font-family', '"AvertaItalic", sans-serif')
+    .style('font-weight', 'bold')
+    .style('opacity', 0)
+
+    var annotations_comments = svg.selectAll('.annotation_group_cluster_comments')
+    .data(function(d,i) { return [d] })
+    annotations_comments.exit().remove()
+    annotations_comments.enter().append("g")
+    .attr("class", "annotation_group_cluster_comments")
+    .merge(annotations_comments)
+    svg.selectAll('.annotation_group_cluster_comments')
+    .style('opacity', 0)
+    .transition()
+    .duration(0)
+    .delay(5000)
+    .style('opacity', function(d,i) { return (job_entry['job_role']+' '+job_entry['sector']==starting_role_sector) ? 1 : 0 })
+
+
+    var branches_group = svg.selectAll('.branches_group')
+    .data(job_entry['feasible_transitions'])
+    branches_group.enter().append('g')
+    .attr('class', 'branches_group')
+    .merge(branches_group)
+    branches = svg.selectAll('.branches_group').selectAll('.branches')
+    .data(function(d,i) { return [d]})
+    branches.exit().remove()
+    branches.enter().append('line')
+    .attr('class', 'branches')
+    .merge(branches)
+    .transition()
+    .duration(0)
+    .style('stroke-linecap', "round")
+    .style('fill', 'transparent')
+    .style('stroke', color_branches ) 
+    .style('opacity', 0)
+
+    dots = svg.selectAll('.branches_group').selectAll('.dots')
+    .data(function(d,i) { return d['positions_of_detours'] })
+    dots.exit().remove()
+    dots.enter().append('circle')
+    .attr('class', 'dots')
+    .merge(dots)
+    .transition()
+    .duration(0)
+    .style('fill', function(d,i) { return (d.matching_score<0.2) ? "url(#gradient-dots" + 0 + ")" : (d.matching_score<0.4) ? "url(#gradient-dots" + 1 + ")" : (d.matching_score<0.6) ? "url(#gradient-dots" + 2 + ")" : (d.matching_score<0.8) ? "url(#gradient-dots" + 3 + ")" : "url(#gradient-dots" + 4 + ")"})
+
+    var name_alternatives_text_invisible = svg.selectAll('.name_alternatives_text_invisible')
+    .data(job_entry['feasible_transitions'])
+    name_alternatives_text_invisible.enter().append('text')
+    .attr('class', 'name_alternatives_text_invisible')
+    .merge(name_alternatives_text_invisible)
+    .transition()
+    .duration(0)
+    .style('fill', color_alternative_jobs)
+    .style('font-family', '"AvertaBold", sans-serif')
+    .style('opacity', 0)
+
+    var name_alternatives_text = svg.selectAll('.name_alternatives_text')
+    .data(job_entry['feasible_transitions'])
+    name_alternatives_text.enter().append('text')
+    .attr('class', 'name_alternatives_text')
+    .merge(name_alternatives_text)
+    .transition()
+    .duration(0)
+    .style('fill', function(d,i) { return (d.similarity==1) ? color_branches : color_alternative_jobs })
+    .style('font-family', '"AvertaBold", sans-serif')
+
+    var sector_alternatives_text = svg.selectAll('.sector_alternatives_text')
+    .data(job_entry['feasible_transitions'])
+    sector_alternatives_text.enter().append('text')
+    .attr('class', 'sector_alternatives_text')
+    .merge(sector_alternatives_text)
+    .transition()
+    .duration(0)
+    .style('fill', function(d,i) { return (d.similarity==1) ? color_branches : color_alternative_jobs })
+    .text(function(d,i) { return 'in '+d.sector })  
+    .style('font-family', '"AvertaRegular", sans-serif')
+
+    var level_alternatives_text = svg.selectAll('.level_alternatives_text')
+    .data(job_entry['feasible_transitions'])
+    level_alternatives_text.enter().append('text')
+    .attr('class', 'level_alternatives_text')
+    .merge(level_alternatives_text)
+    .transition()
+    .duration(0)
+    .style('fill', function(d,i) { return (d.similarity==1) ? color_branches : color_alternative_jobs })
+    .text(function(d,i) { return ' Level '+Math.round(+d.seniority*10)/10 })   
+    var salary_alternatives_text = svg.selectAll('.salary_alternatives_text')
+    .data(job_entry['feasible_transitions'])
+    salary_alternatives_text.enter().append('text')
+    .attr('class', 'salary_alternatives_text')
+    .merge(salary_alternatives_text)
+    .transition()
+    .duration(0)
+    .style('fill', function(d,i) { return (d.similarity==1) ? color_branches : color_alternative_jobs })
+    .text(function(d,i) { return (d.salary!="nan") ? "SGD "+Math.round(d.salary).toString() : "" })   
+  
+    var vertical_line = svg.selectAll('.vertical_line')
+    .data([job_entry])
+    vertical_line.enter().append('line')
+    .attr('class', 'vertical_line')
+    .merge(vertical_line)
+    .transition()
+    .duration(0)
+    .style('stroke', color_branches)
+    .style('stroke-linecap', "round")
+
+    // Resize
+    resize();
+
+  } // end of draw_transitions
+  
+
+
+// Resize
+window.addEventListener("resize", function(d,i) { resize() });
+
+ 
+</script>
+</html>
